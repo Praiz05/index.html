@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced HTML</title>
+</head>
+<body>
+    
+    <h1>22/EG/CO/1735</h1>
+
+    
+    <nav>
+        <ul>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#students">Students</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Student Profile</h1>
+    </header>
+
+    <article id="profile">
+        <section>
+            
+            <img src="profile.jpg" alt="Profile Picture" onerror="this.src='https://via.placeholder.com/150'; this.onerror=null;">
+
+            
+            <table border="1" id="students">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Major</th>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>21</td>
+                    <td>Computer Science</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>22</td>
+                    <td>Information Technology</td>
+                </tr>
+                <tr>
+                    <td>Alice Johnson</td>
+                    <td>20</td>
+                    <td>Software Engineering</td>
+                </tr>
+                <tr>
+                    <td>Bob Williams</td>
+                    <td>23</td>
+                    <td>Cybersecurity</td>
+                </tr>
+            </table>
+        </section>
+    </article>
+
+    
+    <article id="contact">
+        <h2>Student Registration Form</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+
+            <label>Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label><br><br>
+
+            <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+            <label for="newsletter">Subscribe to newsletter</label><br><br>
+
+            <label for="comments">Comments:</label><br>
+            <textarea id="comments" name="comments" rows="4" cols="40" placeholder="Enter your comments here..."></textarea><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </article>
+
+    <footer>
+        <p>&copy; 2026 Student Profile Page. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+

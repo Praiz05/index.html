@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation with JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <h1>22/EG/CO/1735</h1>
+    
+    <h2>DOM Manipulation Lab</h2>
+    
+    
+    <div class="content">
+        <h3>Activity 1: Change Paragraph Color</h3>
+        <p id="colorParagraph">This is a paragraph that will change color when you click the button below.</p>
+        <button onclick="changeColor()">Change Paragraph Color</button>
+    </div>
+    
+    
+    <div class="content">
+        <h3>Activity 2: Dynamic List Items</h3>
+        <ul id="itemList">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+        <input type="text" id="newItem" placeholder="Enter new list item">
+        <button onclick="addListItem()">Add Item</button>
+    </div>
+    
+    
+    <div class="content">
+        <h3>Activity 3: Toggle Visibility</h3>
+        <div id="toggleDiv" class="toggle-box">
+            <p>This box can be toggled on and off!</p>
+        </div>
+        <button onclick="toggleVisibility()">Toggle Visibility</button>
+    </div>
+    
+    
+    <div class="content">
+        <h3>Activity 4: Display Form Input</h3>
+        <form id="inputForm">
+            <input type="text" id="userInput" placeholder="Type something here...">
+            <button type="button" onclick="displayInput()">Display Input</button>
+        </form>
+        <div id="displayDiv" class="display-box">
+            <p>Your input will appear here:</p>
+            <p id="outputText">(Nothing yet)</p>
+        </div>
+    </div>
+    
+    
+    <div class="content">
+        <h3>Activity 5: Error Handling</h3>
+        <button onclick="handleError()">Test Error Handling</button>
+        <p id="errorMessage" class="error-box"></p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
