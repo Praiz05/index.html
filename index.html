@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Web Development Projects</title>
+
+    <style>
+        /* ===== Base Page Styling ===== */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: #f4f6f9;
+            line-height: 1.6;
+        }
+
+        /* ===== Header Section ===== */
+        header {
+            background-color: #1e293b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            opacity: 0.85;
+        }
+
+        /* ===== Main Content Container ===== */
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* ===== Projects Grid Layout ===== */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        /* ===== Project Card Styling ===== */
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        /* Hover effect */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Project button link */
+        .card a {
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 14px;
+            background-color: #2563eb;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .card a:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <h1>My Web Development Projects</h1>
+        <p>Registration Number: 22/EG/CO/1735</p>
+        <p>Collection of my CPE 314 Coursework Projects</p>
+    </header>
+
+    
+    <main>
+        <section class="projects">
+            
+            <div class="card">
+                <h3>Lab 1</h3>
+                <p>Basic HTML Webpage</p>
+                <a href="lab1/index.html">View Project</a>
+            </div>
+
+            
+            <div class="card">
+                <h3>Lab 2</h3>
+                <p>Advanced HTML Elements</p>
+                <a href="lab2/index.html">View Project</a>
+            </div>
+
+            
+            <div class="card">
+                <h3>Lab 3</h3>
+                <p>CSS Basics</p>
+                <a href="lab3/lab3.html">View Project</a>
+            </div>
+
+            
+            <div class="card">
+                <h3>Lab 4</h3>
+                <p>Layout and Styling with CSS</p>
+                <a href="lab4/lab4.html">View Project</a>
+            </div>
+
+            
+            <div class="card">
+                <h3>Lab 5</h3>
+                <p>JavaScript Basics</p>
+                <a href="lab5/lab5.html">View Project</a>
+            </div>
+
+            
+            <div class="card">
+                <h3>Lab 6</h3>
+                <p>DOM Manipulation</p>
+                <a href="lab6/lab6.html">View Project</a>
+            </div>
+
+            
+            <div class="card">
+                <h3>Lab 7</h3>
+                <p>Events and Interactivity</p>
+                <a href="lab7/lab7.html">View Project</a>
+            </div>
+
+            
+            <div class="card">
+                <h3>Lab 8</h3>
+                <p>To-Do List Application</p>
+                <a href="lab8/todo.html">View Project</a>
+            </div>
+        </section>
+    </main>
+
+    
+    <footer>
+        <p>© 2026 Web Development Coursework</p>
+        <p>Registration Number: 22/EG/CO/1735</p>
+    </footer>
+</body>
+</html>
+
