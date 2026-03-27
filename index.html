@@ -3,163 +3,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>My Web Development Projects</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* ===== Base Page Styling ===== */
+        :root {
+            --ink: #0f172a;
+            --muted: #556070;
+            --accent: #0ea5e9;
+            --accent-dark: #0284c7;
+            --accent-warm: #f59e0b;
+            --card: #ffffff;
+            --stroke: #f2dcc5;
+            --bg: #fff7ea;
+            --shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+            --shadow-soft: 0 10px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, Helvetica, sans-serif;
             margin: 0;
-            background-color: #f4f6f9;
+            font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(900px 450px at 12% -10%, rgba(14, 165, 233, 0.28), transparent 60%),
+                radial-gradient(820px 420px at 90% 10%, rgba(245, 158, 11, 0.28), transparent 65%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.9), transparent 38%),
+                repeating-linear-gradient(90deg, rgba(15, 23, 42, 0.03) 0 1px, transparent 1px 48px);
+            background-color: var(--bg);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
-        /* ===== Header Section ===== */
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: min(1120px, 92vw);
+            margin: 0 auto;
+        }
+
         header {
-            background-color: #1e293b;
-            color: white;
-            padding: 20px;
-            text-align: center;
+            position: relative;
+            padding: 72px 0 56px;
+            overflow: hidden;
         }
 
-        header h1 {
-            margin: 0;
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 14% 6% auto auto;
+            width: 220px;
+            height: 220px;
+            border-radius: 32% 68% 58% 42%;
+            background: radial-gradient(circle at 30% 30%, rgba(14, 165, 233, 0.4), transparent 65%),
+                        radial-gradient(circle at 70% 70%, rgba(245, 158, 11, 0.4), transparent 60%);
+            filter: blur(2px);
+            opacity: 0.8;
+            animation: drift 18s ease-in-out infinite;
+            z-index: 0;
         }
 
-        header p {
-            opacity: 0.85;
-        }
-
-        /* ===== Main Content Container ===== */
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        /* ===== Projects Grid Layout ===== */
-        .projects {
+        .hero {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0 0 8px;
+        }
+
+        h1 {
+            font-family: "DM Serif Display", "Times New Roman", serif;
+            font-size: clamp(36px, 4.6vw, 56px);
+            margin: 0 0 12px;
+        }
+
+        .hero p {
+            margin: 0 0 12px;
+            color: var(--muted);
+            max-width: 60ch;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .meta-card {
+            border: 1px solid var(--stroke);
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 14px;
+            padding: 14px 16px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .meta-title {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        .meta-value {
+            font-weight: 600;
+        }
+
+
+        main {
+            padding: 8px 0 60px;
+            flex: 1;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .section-head h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .section-head p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .lab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
         }
 
-        /* ===== Project Card Styling ===== */
-        .card {
-            background-color: white;
+        .lab-card {
+            position: relative;
+            border-radius: 18px;
+            border: 1px solid var(--stroke);
+            background: var(--card);
             padding: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transform: translateY(12px);
+            opacity: 0;
+            animation: rise 700ms ease forwards;
+        }
+
+        .lab-card::before {
+            content: attr(data-number);
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-size: 42px;
+            font-weight: 700;
+            color: rgba(15, 23, 42, 0.08);
+        }
+
+        .lab-card h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+
+        .lab-card p {
+            margin: 0 0 16px;
+            color: var(--muted);
+        }
+
+        .lab-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        /* Hover effect */
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Project button link */
-        .card a {
+            background: var(--accent);
+            color: #ffffff;
             text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .lab-card a:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .lab-card .tag {
             display: inline-block;
-            margin-top: 10px;
-            padding: 8px 14px;
-            background-color: #2563eb;
-            color: white;
-            border-radius: 5px;
-            font-size: 14px;
+            margin-bottom: 10px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            background: rgba(14, 165, 164, 0.12);
         }
 
-        .card a:hover {
-            background-color: #1d4ed8;
-        }
+        .lab-card:nth-child(1) { animation-delay: 0ms; }
+        .lab-card:nth-child(2) { animation-delay: 60ms; }
+        .lab-card:nth-child(3) { animation-delay: 120ms; }
+        .lab-card:nth-child(4) { animation-delay: 180ms; }
+        .lab-card:nth-child(5) { animation-delay: 240ms; }
+        .lab-card:nth-child(6) { animation-delay: 300ms; }
+        .lab-card:nth-child(7) { animation-delay: 360ms; }
+        .lab-card:nth-child(8) { animation-delay: 420ms; }
 
-        /* ===== Footer ===== */
         footer {
-            text-align: center;
-            padding: 20px;
-            color: #666;
+            border-top: 1px solid var(--stroke);
+            padding: 24px 0 32px;
+            color: var(--muted);
             font-size: 14px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(20px); }
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 760px) {
+            header {
+                padding: 56px 0 40px;
+            }
+
+            .section-head {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            header::before,
+            .lab-card {
+                animation: none;
+            }
+
+            .lab-card,
+            .lab-card a {
+                transition: none;
+            }
         }
     </style>
 </head>
 
 <body>
-    
-    <header>
-        <h1>My Web Development Projects</h1>
-        <p>Registration Number: 22/EG/CO/1735</p>
-        <p>Collection of my CPE 314 Coursework Projects</p>
-    </header>
+    <div class="page">
+        <header>
+            <div class="container hero">
+                <div>
+                    <p class="eyebrow">CPE 314 Coursework</p>
+                    <h1>Web Development Portfolio</h1>
+                    <p>Collection of my CPE 314 coursework projects and lab submissions.</p>
 
-    
-    <main>
-        <section class="projects">
-            
-            <div class="card">
-                <h3>Lab 1</h3>
-                <p>Basic HTML Webpage</p>
-                <a href="lab1/index.html">View Project</a>
+                    <div class="meta-grid">
+                        <div class="meta-card">
+                            <span class="meta-title">Registration Number</span>
+                            <span class="meta-value">22/EG/CO/1735</span>
+                        </div>
+                        <div class="meta-card">
+                            <span class="meta-title">Session</span>
+                            <span class="meta-value">2025/2026</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </header>
 
-            
-            <div class="card">
-                <h3>Lab 2</h3>
-                <p>Advanced HTML Elements</p>
-                <a href="lab2/index.html">View Project</a>
+        <main>
+            <div class="container">
+                <div class="section-head">
+                    <h2>Lab Directory</h2>
+                    <p>Select a lab to view the build.</p>
+                </div>
+
+                <section class="lab-grid">
+                    <article class="lab-card" data-number="01">
+                        <span class="tag">HTML</span>
+                        <h3>Lab 1</h3>
+                        <p>Basic HTML Webpage</p>
+                        <a href="lab1/index.html">Open Lab</a>
+                    </article>
+
+                    <article class="lab-card" data-number="02">
+                        <span class="tag">HTML</span>
+                        <h3>Lab 2</h3>
+                        <p>Advanced HTML Elements</p>
+                        <a href="lab2/index.html">Open Lab</a>
+                    </article>
+
+                    <article class="lab-card" data-number="03">
+                        <span class="tag">CSS</span>
+                        <h3>Lab 3</h3>
+                        <p>CSS Basics</p>
+                        <a href="lab3/lab3.html">Open Lab</a>
+                    </article>
+
+                    <article class="lab-card" data-number="04">
+                        <span class="tag">CSS</span>
+                        <h3>Lab 4</h3>
+                        <p>Layout and Styling with CSS</p>
+                        <a href="lab4/lab4.html">Open Lab</a>
+                    </article>
+
+                    <article class="lab-card" data-number="05">
+                        <span class="tag">JavaScript</span>
+                        <h3>Lab 5</h3>
+                        <p>JavaScript Basics</p>
+                        <a href="lab5/lab5.html">Open Lab</a>
+                    </article>
+
+                    <article class="lab-card" data-number="06">
+                        <span class="tag">JavaScript</span>
+                        <h3>Lab 6</h3>
+                        <p>DOM Manipulation</p>
+                        <a href="lab6/lab6.html">Open Lab</a>
+                    </article>
+
+                    <article class="lab-card" data-number="07">
+                        <span class="tag">JavaScript</span>
+                        <h3>Lab 7</h3>
+                        <p>Events and Interactivity</p>
+                        <a href="lab7/lab7.html">Open Lab</a>
+                    </article>
+
+                    <article class="lab-card" data-number="08">
+                        <span class="tag">Project</span>
+                        <h3>Lab 8</h3>
+                        <p>To-Do List Application</p>
+                        <a href="lab8/todo.html">Open Lab</a>
+                    </article>
+                </section>
             </div>
+        </main>
 
-            
-            <div class="card">
-                <h3>Lab 3</h3>
-                <p>CSS Basics</p>
-                <a href="lab3/lab3.html">View Project</a>
+        <footer>
+            <div class="container footer-inner">
+                <p>© 2026 Web Development Coursework</p>
+                <p>Registration Number: 22/EG/CO/1735</p>
             </div>
-
-            
-            <div class="card">
-                <h3>Lab 4</h3>
-                <p>Layout and Styling with CSS</p>
-                <a href="lab4/lab4.html">View Project</a>
-            </div>
-
-            
-            <div class="card">
-                <h3>Lab 5</h3>
-                <p>JavaScript Basics</p>
-                <a href="lab5/lab5.html">View Project</a>
-            </div>
-
-            
-            <div class="card">
-                <h3>Lab 6</h3>
-                <p>DOM Manipulation</p>
-                <a href="lab6/lab6.html">View Project</a>
-            </div>
-
-            
-            <div class="card">
-                <h3>Lab 7</h3>
-                <p>Events and Interactivity</p>
-                <a href="lab7/lab7.html">View Project</a>
-            </div>
-
-            
-            <div class="card">
-                <h3>Lab 8</h3>
-                <p>To-Do List Application</p>
-                <a href="lab8/todo.html">View Project</a>
-            </div>
-        </section>
-    </main>
-
-    
-    <footer>
-        <p>© 2026 Web Development Coursework</p>
-        <p>Registration Number: 22/EG/CO/1735</p>
-    </footer>
+        </footer>
+    </div>
 </body>
 </html>
-
